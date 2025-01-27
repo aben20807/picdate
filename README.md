@@ -57,8 +57,8 @@ $ picdate -h
 usage: picdate [-h] -s DIR [-d DIR] [-f] [-r] [-j N] [--text_size N]
                [--text_color COLOR] [--text_anchor TEXT_ANCHOR] [--pos_x X]
                [--pos_y Y] [--fine_tune_aspect_ratio RATIO] [--stroke_width N]
-               [--stroke_color COLOR] [--quality N] [--format FORMAT]
-               [--img_exts IMG_EXTS]
+               [--stroke_color COLOR] [--quality N] [--resize W,H]
+               [--format FORMAT] [--img_exts IMG_EXTS]
 
 PicDate: Quick and Simple Date Marking for Photos
 
@@ -85,6 +85,7 @@ options:
   --stroke_width N      stroke width for text (default: 1)
   --stroke_color COLOR  stroke color (default: (242, 97, 0))
   --quality N           jpg output quality (default: 95)
+  --resize W,H          resize image to WxH (default: None)
   --format FORMAT       date format (ref: https://docs.python.org/3/library/date
                         time.html#strftime-and-strptime-format-codes) (default:
                         `%y %#m %#d)

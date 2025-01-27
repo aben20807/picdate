@@ -78,6 +78,13 @@ def add_date_to_img(inpath: str, outpath: str, config: dict):
                 stroke_fill=config["stroke_color"],
             )
 
+            # resize image via thumbnail
+            if config["resize"] is not None:
+                # if the image is vertical swap the width and height
+                if width < height:
+                    config["resize"] = (config["resize"][1], config["resize"][0])
+                img.thumbnail(config["resize"], Image.LANCZOS)
+
             # create parent directors
             if not Path(outpath).absolute().parent.exists():
                 Path(outpath).absolute().parent.mkdir(parents=True, exist_ok=True)
@@ -247,6 +254,9 @@ def get_args():
         "--quality", metavar="N", help="jpg output quality", type=int, default=95
     )
     parser.add_argument(
+        "--resize", metavar="W,H", help="resize image to WxH", type=tuple_type, default=None
+    )
+    parser.add_argument(
         "--format",
         help="date format (ref: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes)",
         type=str,
@@ -275,6 +285,7 @@ def cli():
         "stroke_width": args.stroke_width,
         "stroke_color": args.stroke_color,
         "quality": args.quality,
+        "resize": args.resize,
         "format": args.format,
         "font_path": Path("~/.cache/picdate/CursedTimerUlil-Aznm.ttf").expanduser(),
         "img_exts": args.img_exts,
