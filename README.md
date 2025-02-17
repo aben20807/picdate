@@ -4,7 +4,7 @@
 
 ## Description
 
-Photo studios no longer offer the service of adding dates to photos, so if you need it, you have to do it yourself. Since there didn't seem to be any tools for this, I created one. The format and style are almost fully controlled by users. The [`DateTimeOriginal`](https://www.awaresystems.be/imaging/tiff/tifftags/privateifd/exif/datetimeoriginal.html), i.e., the date the photo was taken, is added if the exif information exists; otherwise, [`stat.ST_MTIME`](https://docs.python.org/3/library/stat.html#stat.ST_MTIME), the time of last modification, is used for those photo without exif information. Note that `ST_MTIME` is just close to but not the taken time. The image qualities are different after processed due to Pillow tool.
+Photo studios no longer offer the service of adding dates to photos, so if you need it, you have to do it yourself. Since there didn't seem to be any tools for this, I created one. The format and style are almost fully controlled by users. The [`DateTimeOriginal`](https://web.archive.org/web/20240329145302/https://www.awaresystems.be/imaging/tiff/tifftags/privateifd/exif/datetimeoriginal.html), i.e., the date the photo was taken, is added if the exif information exists; otherwise, [`stat.ST_MTIME`](https://docs.python.org/3/library/stat.html#stat.ST_MTIME), the time of last modification, is used for those photo without exif information. Note that `ST_MTIME` is just close to but not the taken time. The image qualities are different after processed due to Pillow tool.
 
 ## Install
 
@@ -12,11 +12,6 @@ from PyPi:
 
 ```bash
 pip3 install picdate
-```
-
-```bash
-# or with specific version
-pip3 install picdate==2.0.1
 ```
 
 from GitHub:
